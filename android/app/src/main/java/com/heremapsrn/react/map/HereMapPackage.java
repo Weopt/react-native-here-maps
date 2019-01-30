@@ -25,7 +25,6 @@ public class HereMapPackage implements ReactPackage {
         return Arrays.<NativeModule>asList(new HereMapModule(reactContext));
     }
 
-    @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }
