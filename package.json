@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "react": "~15.4.1",
+    "react-native": "^0.42.3"
+  },
+  "description": "An attempt to use HEREMaps for Android in React Native.",
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "~15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "keywords": [
+    "react-native",
+    "component",
+    "maps",
+    "HereMaps",
+    "HereMapsRN"
+  ],
+  "main": "./MapView.js",
+  "name": "react-native-heremaps",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "version": "0.0.1"
+}
