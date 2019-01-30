@@ -22,6 +22,14 @@ In MainApplication.java :
 
 ```
 import com.heremapsrn.react.map.HereMapPackage;
+
+protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+            new HereMapPackage() // <------ Add this line
+      );
+    }
+    
 ```
 
 ## Here Maps license
