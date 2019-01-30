@@ -1,6 +1,7 @@
 // MapView.js
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Button,
@@ -21,12 +22,12 @@ const UIManager = NativeModules.UIManager;
 var iface = {
   name: 'MapView',
   propTypes: {
-    ...View.propTypes, // include the default view properties
+    //...View.propTypes, // include the default view properties
 
     /**
      * style
      */
-    style: View.propTypes.style,
+    style: PropTypes.Object,
 
     /**
      * Center of the map : latitude,longitude

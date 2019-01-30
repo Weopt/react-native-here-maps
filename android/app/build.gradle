@@ -1,4 +1,5 @@
-apply plugin: "com.android.application"
+//apply plugin: "com.android.application"
+apply plugin: 'com.android.library'
 
 import com.android.build.OutputFile
 
@@ -65,7 +66,7 @@ import com.android.build.OutputFile
  * ]
  */
 
-apply from: "../../node_modules/react-native/react.gradle"
+// apply from: "../../node_modules/react-native/react.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -95,7 +96,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "com.heremapsrn"
+        // applicationId "com.heremapsrn"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
@@ -124,7 +125,7 @@ android {
     }
 
     // applicationVariants are e.g. debug, release
-    applicationVariants.all { variant ->
+    /* applicationVariants.all { variant ->
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
@@ -135,13 +136,15 @@ android {
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
         }
-    }
+    } */
+    
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
 
-    implementation(name:'HERE-sdk', ext:'aar')
+    // implementation(name:'HERE-sdk', ext:'aar')
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }

@@ -2,8 +2,31 @@
 
 A native module to use Here Maps with React Native
 
+
+## Install
+
+
+yarn add https://github.com/Weopt/react-native-here-maps/tarball/master
+
+react-native link
+
+In AndroidManifest.xml add:
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+In MainApplication.java :
+
+
+import com.heremapsrn.react.map.HereMapPackage;
+
+
 ## Here Maps license
 Go to [HERE website](https://developer.here.com/develop/mobile-sdks) and create your license key.
+
 
 Then, open AndroidManifest.xml and update this section with your license.
 
