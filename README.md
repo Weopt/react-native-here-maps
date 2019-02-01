@@ -1,4 +1,4 @@
-# react-native-heremaps
+# react-native-here-maps
 
 A native module to use Here Maps with React Native
 
