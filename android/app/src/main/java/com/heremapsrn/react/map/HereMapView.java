@@ -1,6 +1,7 @@
 package com.heremapsrn.react.map;
 
 import android.content.Context;
+import android.graphics.PointF;
 import android.util.Log;
 
 
@@ -84,7 +85,12 @@ public class HereMapView extends MapView {
                                                 // map marker, so we can do something with it
                                                 // (like change the visibility, or more
                                                 // marker-specific actions)
-                                                ((MapMarker) viewObj).showInfoBubble();
+                                                if(((MapMarker) viewObj).isInfoBubbleVisible()){
+                                                    ((MapMarker) viewObj).hideInfoBubble();
+                                                } else {
+                                                    ((MapMarker) viewObj).showInfoBubble();
+                                                }
+
                                             }
                                         }
                                     }
@@ -92,6 +98,10 @@ public class HereMapView extends MapView {
                                     return false;
                                 }
                             });
+
+
+
+
 
                     Log.i(TAG, "INIT FINISH !!!!");
 
@@ -182,16 +192,14 @@ public class HereMapView extends MapView {
 
     public void setMarkersList(ReadableArray markersPosition) {
 
-
         for(int i=0; i< markersPosition.size(); i++) {
 
             ReadableMap readableMap = markersPosition.getMap(i);
 
-            String[] values = readableMap.getString("location").split(",");
-            if (values.length == 2) {
+            // String[] values = readableMap.getString("location").split(",");
 
-                double latitude = Double.parseDouble(values[0]);
-                double longitude = Double.parseDouble(values[1]);
+                double latitude = readableMap.getDouble("latitude");
+                double longitude = readableMap.getDouble("longitude");
 
                 String title = readableMap.getString("title");
                 String description = readableMap.getString("description");
@@ -207,6 +215,7 @@ public class HereMapView extends MapView {
 
                 //Create the MamMarker
                 MapMarker marker = new MapMarker(new GeoCoordinate(latitude, longitude), myImage);
+                marker.setAnchorPoint(new PointF(myImage.getWidth() / 2f, myImage.getHeight()));
 
                 marker.setTitle(title);
                 marker.setDescription(description);
@@ -215,9 +224,6 @@ public class HereMapView extends MapView {
                 markers.add(marker);
 
                 if (mapIsReady) map.addMapObject(marker);
-            } else {
-                Log.w(TAG, String.format("Invalid marker position: %s", readableMap.getString("location")));
-            }
 
         }
 
