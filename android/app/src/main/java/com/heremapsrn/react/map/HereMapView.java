@@ -174,13 +174,14 @@ public class HereMapView extends MapView {
             Image myImage = new Image();
 
             try {
-                myImage.setImageResource(R.drawable.marker);
+                myImage.setImageResource(R.drawable.location);
             } catch (IOException e) {
                 Log.e(TAG, String.format("Error initializing image marker: %s", e.getMessage()));
             }
             // Create the MapMarker
             MapMarker marker =
                     new MapMarker(new GeoCoordinate(latitude, longitude), myImage);
+            marker.setAnchorPoint(new PointF(myImage.getWidth() / 2f, myImage.getHeight()));
 
             markers.add(marker);
 
