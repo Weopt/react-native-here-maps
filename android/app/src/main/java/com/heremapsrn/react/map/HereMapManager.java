@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.ViewGroupManager;
@@ -64,7 +65,7 @@ class HereMapManager extends ViewGroupManager<HereMapView> {
             }
 
             case COMMAND_SET_CENTER: {
-                String coordinate = args.getString(0);
+                ReadableMap coordinate = args.getMap(0);
                 view.setCenter(coordinate);
                 return;
             }
@@ -78,7 +79,7 @@ class HereMapManager extends ViewGroupManager<HereMapView> {
     }
 
     @ReactProp(name = "center")
-    public void setCenter(HereMapView view, @Nullable String center) {
+    public void setCenter(HereMapView view, @Nullable ReadableMap center) {
         Log.d(TAG, "======================= Center " + center);
         view.setCenter(center);
     }
@@ -95,10 +96,10 @@ class HereMapManager extends ViewGroupManager<HereMapView> {
         view.setZoomLevel(zoomLevel);
     }
 
-    @ReactProp(name = "marker")
-    public void setMarker(HereMapView view, @Nullable String markerPosition) {
+    @ReactProp(name = "userLocation")
+    public void setUserLocation(HereMapView view, @Nullable ReadableMap markerPosition) {
         Log.d(TAG, "======================= Marker " + markerPosition);
-        view.setMarker(markerPosition);
+        view.setUserLocation(markerPosition);
     }
 
     @ReactProp(name = "markersList")

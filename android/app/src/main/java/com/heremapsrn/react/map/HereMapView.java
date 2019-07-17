@@ -130,18 +130,14 @@ public class HereMapView extends MapView {
         MapEngine.getInstance().onResume();
     }
 
-    public void setCenter(String center) {
-        String[] values = center.split(",");
+    public void setCenter(ReadableMap center) {
 
-        if (values.length == 2) {
-            double latitude = Double.parseDouble(values[0]);
-            double longitude = Double.parseDouble(values[1]);
+        double latitude = center.getDouble("latitude");
+        double longitude = center.getDouble("longitude");
 
-            mapCenter = new GeoCoordinate(latitude, longitude);
-            if (mapIsReady) map.setCenter(mapCenter, Map.Animation.NONE);
-        } else {
-            Log.w(TAG, String.format("Invalid center: %s", center));
-        }
+        mapCenter = new GeoCoordinate(latitude, longitude);
+        if (mapIsReady) map.setCenter(mapCenter, Map.Animation.NONE);
+
     }
 
     public void setMapType(String mapType) {
@@ -162,33 +158,29 @@ public class HereMapView extends MapView {
         map.setZoomLevel(zoomLevel);
     }
 
-    public void setMarker(String markerPosition) {
+    public void setUserLocation(ReadableMap markerPosition) {
 
-        String[] values = markerPosition.split(",");
 
-        if (values.length == 2) {
-            double latitude = Double.parseDouble(values[0]);
-            double longitude = Double.parseDouble(values[1]);
+        double latitude = markerPosition.getDouble("latitude");
+        double longitude = markerPosition.getDouble("longitude");
 
-            // Create a custom marker image
-            Image myImage = new Image();
+        // Create a custom marker image
+        Image myImage = new Image();
 
-            try {
-                myImage.setImageResource(R.drawable.location);
-            } catch (IOException e) {
-                Log.e(TAG, String.format("Error initializing image marker: %s", e.getMessage()));
-            }
-            // Create the MapMarker
-            MapMarker marker =
-                    new MapMarker(new GeoCoordinate(latitude, longitude), myImage);
-            marker.setAnchorPoint(new PointF(myImage.getWidth() / 2f, myImage.getHeight()));
-
-            markers.add(marker);
-
-            if (mapIsReady) map.addMapObject(marker);
-        } else {
-            Log.w(TAG, String.format("Invalid marker position: %s", markerPosition));
+        try {
+            myImage.setImageResource(R.drawable.location);
+        } catch (IOException e) {
+            Log.e(TAG, String.format("Error initializing image marker: %s", e.getMessage()));
         }
+        // Create the MapMarker
+        MapMarker marker =
+                new MapMarker(new GeoCoordinate(latitude, longitude), myImage);
+        marker.setAnchorPoint(new PointF(myImage.getWidth() / 2f, myImage.getHeight()));
+
+        markers.add(marker);
+
+        if (mapIsReady) map.addMapObject(marker);
+
     }
 
     public void setMarkersList(ReadableArray markersPosition) {
