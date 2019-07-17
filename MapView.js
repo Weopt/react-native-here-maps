@@ -32,7 +32,7 @@ var iface = {
     /**
      * Center of the map : latitude,longitude
      */
-    center: PropTypes.string,
+    center: PropTypes.Object,
 
     /**
      * The map type to be displayed.
@@ -51,9 +51,9 @@ var iface = {
      initialZoom : PropTypes.number,
 
      /**
-     * Marker put on the map : latitude,longitude
+     * Marker put on the map for the user location : latitude,longitude
      */
-    marker: PropTypes.string,
+    userLocation: PropTypes.Object,
 
     markersList: PropTypes.array,
   },
@@ -112,7 +112,7 @@ export default class MapView extends React.Component {
         center={this.props.center}
         mapType={ this.props.mapType }
         initialZoom={ this.props.initialZoom } 
-        marker={this.props.marker}
+        userLocation={this.props.userLocation}
         markersList={this.props.markersList} >
 
         <View style={{ position:'absolute', top: 10, right: 10,
