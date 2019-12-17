@@ -1,4 +1,4 @@
-package com.heremapsrn.react.map;
+package com.heremapsrn;
 
 import android.app.Activity;
 import android.util.Log;
@@ -10,7 +10,7 @@ import com.facebook.react.bridge.ReactMethod;
 import java.io.Closeable;
 import java.io.IOException;
 
-import static com.heremapsrn.react.map.HereMapManager.REACT_CLASS;
+import static com.heremapsrn.HereMapManager.REACT_CLASS;
 
 class HereMapModule extends ReactContextBaseJavaModule {
 

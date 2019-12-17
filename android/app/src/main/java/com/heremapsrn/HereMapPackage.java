@@ -1,4 +1,4 @@
-package com.heremapsrn.react.map;
+package com.heremapsrn;
 
 import android.app.Activity;
 

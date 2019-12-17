@@ -21,7 +21,7 @@ In AndroidManifest.xml add:
 In MainApplication.java :
 
 ```
-import com.heremapsrn.react.map.HereMapPackage;
+import com.heremapsrn.HereMapPackage;
 
 protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
