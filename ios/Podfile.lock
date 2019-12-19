@@ -5,7 +5,7 @@ DEPENDENCIES:
   - HEREMapsStarter
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - HEREMapsStarter
 
 SPEC CHECKSUMS:
@@ -13,4 +13,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 91e41e493adbe0da6cf8479710f497fc50186be3
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
