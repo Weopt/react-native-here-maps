@@ -17,7 +17,9 @@
 
 @property (strong, nonatomic) IBOutlet NMAMapView *mapView;
 @property (nonatomic, strong) NSDictionary *mapCenter;
+@property (nonatomic, strong) NSDictionary *userLocation;
 @property (nonatomic, strong) NSArray *markersList;
+@property (nonatomic) float initialZoom;
 
 
 - (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher NS_DESIGNATED_INITIALIZER;

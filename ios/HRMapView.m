@@ -39,6 +39,28 @@
     }
 }
 
+- (void)setInitialZoom:(float)initialZoom
+{
+    RCTLogInfo(@"Set initial zoom map to %f", initialZoom);
+    
+    self.mapView.zoomLevel = initialZoom;
+}
+
+- (void)setUserLocation:(NSDictionary *)userLocation
+{
+    RCTLogInfo(@"Set user location marker to %f,%f", [[userLocation objectForKey:(@"latitude")] doubleValue], [[userLocation objectForKey:(@"longitude")] doubleValue]);
+    UIImage  *myImage = [UIImage imageNamed:@"userLocation"];
+    // Add the marker on the map
+    NMAMapMarker *positionMarker =
+    [NMAMapMarker
+        mapMarkerWithGeoCoordinates:[NMAGeoCoordinates
+            geoCoordinatesWithLatitude:[[userLocation objectForKey:(@"latitude")] doubleValue]
+            longitude:[[userLocation objectForKey:(@"longitude")] doubleValue]]
+            image: myImage];
+    
+    [_mapView addMapObject:positionMarker];
+}
+
 - (void)setMarkersList:(NSArray *)markersList
 {
     RCTLogInfo(@"Set markers List");
@@ -54,7 +76,9 @@
                 image:[UIImage imageNamed:@"marker"]];
         
         [positionMarker setTitle:[marker objectForKey:(@"title")]];
-        [positionMarker setTextDescription:[marker objectForKey:(@"description")]];
+        if ( [marker objectForKey:(@"description")] != (id)[NSNull null] ) {
+            [positionMarker setTextDescription:[marker objectForKey:(@"description")]];
+        }
         
         
         [_mapView addMapObject:positionMarker];
@@ -102,4 +126,3 @@
 }
 
 @end
-
