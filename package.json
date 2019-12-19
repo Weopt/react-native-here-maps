@@ -23,7 +23,7 @@
     "HereMaps",
     "HereMapsRN"
   ],
-  "main": "./MapView.js",
+  "main": "./index",
   "name": "react-native-heremaps",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
