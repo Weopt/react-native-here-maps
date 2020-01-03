@@ -1,6 +1,0 @@
-framework module NMAKit {
-  umbrella header "NMAKit.h"
-
-  export *
-  module * { export * }
-}
