@@ -75,9 +75,9 @@
                 longitude:[[marker objectForKey:(@"longitude")] doubleValue]]
                 image:[UIImage imageNamed:@"marker"]];
         
-        [positionMarker setTitle:[marker objectForKey:(@"title")]];
+        // [positionMarker setTitle:[marker objectForKey:(@"title")]];
         if ( [marker objectForKey:(@"description")] != (id)[NSNull null] ) {
-            [positionMarker setTextDescription:[marker objectForKey:(@"description")]];
+            // [positionMarker setTextDescription:[marker objectForKey:(@"description")]];
         }
         
         
@@ -115,7 +115,7 @@
 -(void)mapView:(NMAMapView *)mapView didSelectObjects:(NSArray *)objects {
     RCTLogInfo(@"TAP on marker !");
     NMAMapMarker *mapMarker = (NMAMapMarker *) objects.firstObject;
-    [mapMarker showInfoBubble];
+    // [mapMarker showInfoBubble];
 }
 
 - (void)layoutSubviews
