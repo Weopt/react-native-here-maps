@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
     s.license      = "MIT"
     # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
     s.author             = { "author" => "n.potier@we-opt.com" }
-    s.platform     = :ios, "7.0"
+    s.platform     = :ios, "10.0"
     s.source       = { :git => "https://github.com/Weopt/react-native-here-maps.git", :tag => "master" }
     s.source_files = "ios/**/*.{h,m,swift,a}"
     s.requires_arc = true
 
     s.dependency "React"
-    s.dependency "HEREMaps"  
+    s.dependency "HEREMaps", '~> 3.14.2'
 end
