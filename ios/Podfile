@@ -6,6 +6,6 @@ target 'RNHereMapsIos' do
   # use_frameworks!
 
   # Pods for RNHereMapsIos
-  pod 'HEREMapsStarter'
+  pod 'HEREMaps'
 
 end
