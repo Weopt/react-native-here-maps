@@ -14,11 +14,6 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)view
 {    
-    // return self.mapView;
-    [NMAApplicationContext setAppId:@"0p2Xc0nzndhBi7OwUKeQ"
-                            appCode:@"wOeyyp6FqqEoHjmybx5wHw"];
-    
-    
     return [[HRMapView alloc] initWithEventDispatcher:self.bridge.eventDispatcher];
 }
 
